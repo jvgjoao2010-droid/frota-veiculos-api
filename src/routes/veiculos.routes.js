@@ -1,15 +1,16 @@
-import express from 'express';
-import veiculosServices from '../services/veiculos.Services.js';
+import express from 'express'
+import veiculosService from '../services/veiculos.services.js'
 
-const veiculosRouters = express.Router();
+const veiculosRouter = express.Router()
 
-veiculosRouters.get('/', async (req, res) => {
-  const veiculos = await veiculosServices.getAll();
-  res.json(VEICULOS);
-});
-veiculosRoutesRouters.post('/', async (req, res) =>  {
-        const VEICULOS = await veiculosServices.create(req.body);
-  return res.status(201).json(VEICULOS);
-});
+veiculosRouter.get('/', async (req, res) => {
+    const veiculos = await veiculosService.getAll()
+    return res.json(veiculos)
+})
 
-export default veiculosRoutes;
+veiculosRouter.post('/', async (req, res) => {
+    const veiculo = await veiculosService.create(req.body)
+    return res.status(201).json(veiculo)
+})
+
+export default veiculosRouter
